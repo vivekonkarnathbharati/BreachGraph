@@ -84,14 +84,13 @@ def get_graph(graph_name: str = FALKORDB_GRAPH_NAME) -> Graph:
 
 def verify_graph_liveness(graph: Optional[Graph] = None) -> bool:
     """
-    Strict Rule 3 assertion: Verifies the graph engine is alive and holds graph data.
+    Strict Rule 3 assertion: Verifies the FalkorDB engine is live and responsive.
     
     Returns:
         bool: True if FalkorDB is live and responsive.
     """
-    target_graph = graph or get_graph()
     try:
-        res = target_graph.ro_query("RETURN 1 AS ping")
-        return len(res.result_set) > 0
+        db = get_falkordb_client()
+        return bool(db.connection.ping())
     except Exception as e:
         raise GraphConnectionError(f"Rule 3 Violation: FalkorDB liveness check failed: {e}") from e

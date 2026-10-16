@@ -29,11 +29,11 @@ LIMIT 1
 CYPHER_BLAST_RADIUS = """
 MATCH path = (origin:Server {name: $name})-[*1..5]->(target)
 WHERE length(path) <= $depth
-RETURN target.name AS asset_name,
+RETURN coalesce(target.name, target.cve, target.id) AS asset_name,
        labels(target)[0] AS asset_type,
        coalesce(target.classification, 'Standard') AS classification,
        length(path) AS hops,
-       [n IN nodes(path) | labels(n)[0] + ':' + n.name] AS trace_path
+       [n IN nodes(path) | labels(n)[0] + ':' + coalesce(n.name, n.cve, n.id, 'Asset')] AS trace_path
 ORDER BY hops ASC, asset_name ASC
 """
 
@@ -44,7 +44,8 @@ ORDER BY hops ASC, asset_name ASC
 # Leverages FalkorDB's native C-engine shortestPath algorithm with explicit
 # lower bound [*1..5] to pinpoint the fastest lateral movement vector.
 CYPHER_SHORTEST_PATH = """
-MATCH path = shortestPath((origin:Server {name: $comp})-[*1..5]->(vault:Database {name: $db}))
+MATCH (origin:Server {name: $comp}), (vault:Database {name: $db})
+WITH shortestPath((origin)-[*1..5]->(vault)) AS path
 RETURN length(path) AS total_hops,
        [n IN nodes(path) | {name: n.name, type: labels(n)[0], status: coalesce(n.status, 'ACTIVE')}] AS path_nodes,
        [r IN relationships(path) | type(r)] AS edge_types
@@ -58,16 +59,18 @@ RETURN length(path) AS total_hops,
 # minimizing collateral operational damage is a Minimum-Weight Cut problem.
 #
 # Logic:
-# 1. Finds the shortest path to the high-value database.
+# 1. Finds the shortest path to the high-value database via WITH shortestPath.
 # 2. Unwinds candidate intermediate cut vertices (excluding origin and database).
 # 3. Uses FalkorDB-safe label syntax: labels(candidate)[0] <> 'Database'.
 # 4. Dynamically sums incoming [:DEPENDS_ON] operational revenue impacts.
 # 5. Returns cut candidates ranked by collateral_damage_per_hr ASC.
 # ZERO hardcoded Python values: all trade-off numbers come directly from FalkorDB!
 CYPHER_MIN_CUT_TRADEOFF = """
-MATCH path = shortestPath((origin:Server {name: $comp})-[*1..5]->(vault:Database {name: $db}))
+MATCH (origin:Server {name: $comp}), (vault:Database {name: $db})
+WITH shortestPath((origin)-[*1..5]->(vault)) AS path, origin
 UNWIND nodes(path) AS candidate
-WHERE labels(candidate)[0] <> 'Database' AND candidate.name <> $comp
+WITH candidate, origin
+WHERE labels(candidate)[0] <> 'Database' AND candidate.name <> origin.name
 OPTIONAL MATCH (dependent)-[:DEPENDS_ON]->(candidate)
 RETURN candidate.name AS cut_target,
        labels(candidate)[0] AS target_type,

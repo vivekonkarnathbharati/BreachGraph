@@ -87,12 +87,13 @@ class TerminalUI:
 
         for a in d4["all_reachable_assets"]:
             cls_style = "bold red" if "PCI-DSS" in a["classification"] else "white"
+            formatted_trace = " ➔ ".join([str(p) for p in a["trace_path"] if p is not None])
             path_table.add_row(
                 str(a["hops"]),
                 a["asset_name"],
                 a["asset_type"],
                 f"[{cls_style}]{a['classification']}[/{cls_style}]",
-                " ➔ ".join(a["trace_path"])
+                formatted_trace
             )
         self.console.print(path_table)
 

@@ -48,6 +48,7 @@ def seed_database(verbose: bool = True) -> Dict[str, Any]:
     })
     CREATE (cve:Vulnerability {
         id: 'vuln-001',
+        name: 'CVE-2024-4577',
         cve: 'CVE-2024-4577',
         severity: 'CRITICAL',
         cvss: 9.8,
