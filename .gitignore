@@ -1,0 +1,30 @@
+# Environment & secrets
+.env
+*.env
+*.pem
+*.key
+
+# Python virtual environment & caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+.coverage
+htmlcov/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Forensic reports (generated at runtime)
+forensic_incident_report_*.json

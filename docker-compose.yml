@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: breachgraph_falkordb
+    ports:
+      # Port 6379: Redis protocol / FalkorDB engine query interface
+      - "6379:6379"
+      # Port 3000: FalkorDB Browser visual web interface
+      - "3000:3000"
+    environment:
+      - FALKORDB_ARGS=--maxmemory 512mb
+    volumes:
+      - falkordb_data:/data
+    restart: unless-stopped
+
+volumes:
+  falkordb_data:
+    driver: local

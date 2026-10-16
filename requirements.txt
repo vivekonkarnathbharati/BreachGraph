@@ -1,0 +1,17 @@
+# Official FalkorDB client library
+falkordb>=1.7.0
+
+# Official Google GenAI SDK for Gemini function calling
+google-genai>=0.1.0
+
+# Environment variable loading
+python-dotenv>=1.0.0
+
+# Terminal UI formatting & animated spinners for live demo
+rich>=13.7.0
+
+# Resilient exponential backoff & retry handling for rate-limited APIs
+tenacity>=8.2.0
+
+# Automated testing suite
+pytest>=7.4.0
