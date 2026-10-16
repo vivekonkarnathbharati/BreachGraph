@@ -6,48 +6,87 @@
   <title>BreachGraph — Executive Presentation (Track 01)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
+    /* THEME 1: Aurora Twilight (Eye-Friendly Deep Midnight + Vibrant Gradients) - DEFAULT */
     :root {
-      --bg: #f8fafc;
-      --bg-grad-1: rgba(99, 102, 241, 0.05);
-      --bg-grad-2: rgba(16, 185, 129, 0.05);
-      --card-bg: #ffffff;
-      --card-border: rgba(15, 23, 42, 0.08);
-      --card-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04);
-      --text-title: #0f172a;
-      --text-body: #334155;
-      --text-muted: #64748b;
-      --primary: #4f46e5;
-      --primary-light: #eef2ff;
-      --emerald: #059669;
-      --emerald-light: #ecfdf5;
-      --crimson: #dc2626;
-      --crimson-light: #fef2f2;
-      --amber: #d97706;
-      --amber-light: #fffbeb;
-      --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --canvas-bg: #0d121f;
+      --bg-mesh-1: rgba(99, 102, 241, 0.22); /* Indigo */
+      --bg-mesh-2: rgba(236, 72, 153, 0.16); /* Pink/Magenta */
+      --bg-mesh-3: rgba(16, 185, 129, 0.18); /* Emerald */
+      --bg-mesh-4: rgba(6, 182, 212, 0.18);  /* Cyan */
+      
+      --deck-bg: rgba(18, 25, 44, 0.82);
+      --deck-border: rgba(255, 255, 255, 0.12);
+      --deck-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.7), 0 0 50px rgba(99, 102, 241, 0.12);
+      
+      --card-bg-subtle: rgba(255, 255, 255, 0.04);
+      --card-border-subtle: rgba(255, 255, 255, 0.08);
+      
+      --text-main: #f8fafc;
+      --text-sub: #cbd5e1;
+      --text-dim: #94a3b8;
+      
+      --accent-violet: #818cf8;
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #34d399;
+      --accent-coral: #f87171;
+      --accent-amber: #fbbf24;
+
+      --sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
       --mono: 'JetBrains Mono', monospace;
     }
 
-    [data-theme="dark"] {
-      --bg: #0b0f19;
-      --bg-grad-1: rgba(99, 102, 241, 0.12);
-      --bg-grad-2: rgba(16, 185, 129, 0.08);
-      --card-bg: #111827;
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-      --text-title: #f8fafc;
-      --text-body: #cbd5e1;
-      --text-muted: #94a3b8;
-      --primary: #6366f1;
-      --primary-light: rgba(99, 102, 241, 0.15);
-      --emerald: #10b981;
-      --emerald-light: rgba(16, 185, 129, 0.15);
-      --crimson: #ef4444;
-      --crimson-light: rgba(239, 68, 68, 0.15);
-      --amber: #f59e0b;
-      --amber-light: rgba(245, 158, 11, 0.15);
+    /* THEME 2: Eye-Care Soft Slate (Soothing Muted Canvas, Not Blinding White, Colorful Cards) */
+    [data-theme="soft-slate"] {
+      --canvas-bg: #dde4ed;
+      --bg-mesh-1: rgba(99, 102, 241, 0.15);
+      --bg-mesh-2: rgba(236, 72, 153, 0.12);
+      --bg-mesh-3: rgba(16, 185, 129, 0.15);
+      --bg-mesh-4: rgba(6, 182, 212, 0.15);
+      
+      --deck-bg: #edf2f7;
+      --deck-border: rgba(15, 23, 42, 0.12);
+      --deck-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+      
+      --card-bg-subtle: #ffffff;
+      --card-border-subtle: rgba(15, 23, 42, 0.08);
+      
+      --text-main: #0f172a;
+      --text-sub: #334155;
+      --text-dim: #64748b;
+      
+      --accent-violet: #6366f1;
+      --accent-cyan: #0284c7;
+      --accent-emerald: #059669;
+      --accent-coral: #dc2626;
+      --accent-amber: #d97706;
+    }
+
+    /* THEME 3: Cyber Emerald Jewel */
+    [data-theme="cyber-emerald"] {
+      --canvas-bg: #061412;
+      --bg-mesh-1: rgba(16, 185, 129, 0.25);
+      --bg-mesh-2: rgba(6, 182, 212, 0.20);
+      --bg-mesh-3: rgba(245, 158, 11, 0.14);
+      --bg-mesh-4: rgba(16, 185, 129, 0.15);
+      
+      --deck-bg: rgba(11, 28, 25, 0.88);
+      --deck-border: rgba(52, 211, 153, 0.25);
+      --deck-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(16, 185, 129, 0.15);
+      
+      --card-bg-subtle: rgba(255, 255, 255, 0.04);
+      --card-border-subtle: rgba(52, 211, 153, 0.15);
+      
+      --text-main: #f0fdf4;
+      --text-sub: #bbf7d0;
+      --text-dim: #86efac;
+      
+      --accent-violet: #a78bfa;
+      --accent-cyan: #22d3ee;
+      --accent-emerald: #10b981;
+      --accent-coral: #fb7185;
+      --accent-amber: #fbbf24;
     }
 
     * {
@@ -58,33 +97,39 @@
     }
 
     body {
-      background-color: var(--bg);
+      background-color: var(--canvas-bg);
       background-image: 
-        radial-gradient(circle at 10% 10%, var(--bg-grad-1) 0%, transparent 40%),
-        radial-gradient(circle at 90% 90%, var(--bg-grad-2) 0%, transparent 40%);
-      color: var(--text-body);
+        radial-gradient(circle at 15% 20%, var(--bg-mesh-1) 0%, transparent 45%),
+        radial-gradient(circle at 85% 15%, var(--bg-mesh-2) 0%, transparent 40%),
+        radial-gradient(circle at 45% 85%, var(--bg-mesh-3) 0%, transparent 45%),
+        radial-gradient(circle at 90% 85%, var(--bg-mesh-4) 0%, transparent 40%);
+      color: var(--text-main);
       font-family: var(--sans);
       height: 100vh;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: all 0.35s ease;
     }
 
-    /* Header Nav */
+    /* Top HUD Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 48px;
-      border-bottom: 1px solid var(--card-border);
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(12px);
+      padding: 16px 44px;
+      border-bottom: 1px solid var(--deck-border);
+      background: rgba(13, 18, 31, 0.65);
+      backdrop-filter: blur(16px);
       z-index: 50;
     }
 
-    [data-theme="dark"] header {
-      background: rgba(17, 24, 39, 0.7);
+    [data-theme="soft-slate"] header {
+      background: rgba(221, 228, 237, 0.75);
+    }
+
+    [data-theme="cyber-emerald"] header {
+      background: rgba(6, 20, 18, 0.75);
     }
 
     .brand-wrap {
@@ -96,56 +141,58 @@
     .brand-badge {
       font-family: var(--mono);
       font-size: 0.75rem;
-      font-weight: 700;
+      font-weight: 800;
       padding: 4px 10px;
       border-radius: 6px;
-      background: var(--primary-light);
-      color: var(--primary);
+      background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan));
+      color: #ffffff;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
     }
 
     .brand-title {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.95rem;
-      color: var(--text-title);
+      color: var(--text-main);
       letter-spacing: -0.01em;
     }
 
-    .header-actions {
+    .header-palette-controls {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 10px;
     }
 
-    .theme-toggle-btn {
-      background: none;
-      border: 1px solid var(--card-border);
-      padding: 6px 12px;
+    .palette-btn {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--card-border-subtle);
+      padding: 6px 14px;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-family: var(--sans);
-      font-weight: 600;
-      color: var(--text-body);
-      display: flex;
+      font-weight: 700;
+      color: var(--text-sub);
+      display: inline-flex;
       align-items: center;
       gap: 6px;
       transition: all 0.2s;
     }
 
-    .theme-toggle-btn:hover {
-      background: var(--primary-light);
-      color: var(--primary);
+    .palette-btn:hover, .palette-btn.active {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
     }
 
-    /* Main Deck Stage */
+    /* Main Slide Stage */
     .deck-viewport {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px 48px;
+      padding: 24px 44px;
       position: relative;
     }
 
@@ -154,11 +201,12 @@
       max-width: 1140px;
       height: 90%;
       max-height: 640px;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+      background: var(--deck-bg);
+      border: 1px solid var(--deck-border);
       border-radius: 24px;
-      box-shadow: var(--card-shadow);
-      padding: 48px 56px;
+      box-shadow: var(--deck-shadow);
+      backdrop-filter: blur(24px);
+      padding: 44px 52px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -179,46 +227,59 @@
     .slide-tag {
       font-family: var(--mono);
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--primary);
+      letter-spacing: 0.12em;
+      color: var(--accent-cyan);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       margin-bottom: 8px;
     }
 
     .slide-heading {
-      font-size: 2.8rem;
-      font-weight: 800;
-      line-height: 1.15;
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.1;
       letter-spacing: -0.03em;
-      color: var(--text-title);
+      color: var(--text-main);
+    }
+
+    .gradient-title {
+      background: linear-gradient(135deg, #ffffff 25%, var(--accent-cyan) 65%, var(--accent-violet) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="soft-slate"] .gradient-title {
+      background: linear-gradient(135deg, #0f172a 30%, #2563eb 70%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .slide-subtitle {
       font-size: 1.25rem;
-      color: var(--text-muted);
+      color: var(--text-sub);
       line-height: 1.45;
       font-weight: 500;
-      margin-top: 8px;
+      margin-top: 10px;
       max-width: 820px;
     }
 
-    /* Slide 1 Elements */
+    /* Slide 1 Hero */
     .engine-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 18px;
       border-radius: 100px;
-      background: var(--emerald-light);
-      color: var(--emerald);
-      font-weight: 700;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.18), rgba(6, 182, 212, 0.18));
+      color: var(--accent-emerald);
+      font-weight: 800;
       font-size: 0.9rem;
       margin-top: 18px;
-      border: 1px solid rgba(5, 150, 105, 0.2);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
     }
 
     .hero-cards-grid {
@@ -229,43 +290,44 @@
     }
 
     .hero-card {
-      background: var(--bg);
-      border: 1px solid var(--card-border);
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--card-border-subtle);
       border-radius: 16px;
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      transition: transform 0.2s;
+      transition: all 0.2s;
     }
 
     .hero-card:hover {
       transform: translateY(-2px);
+      border-color: var(--accent-cyan);
     }
 
     .hero-card-label {
       font-size: 0.75rem;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.08em;
-      color: var(--text-muted);
+      color: var(--text-dim);
       font-family: var(--mono);
     }
 
     .hero-card-val {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 800;
-      color: var(--text-title);
+      color: var(--text-main);
       margin-top: 6px;
     }
 
     .hero-card-sub {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-sub);
       margin-top: 4px;
     }
 
-    /* Slide 2: Dilemma vs Solution Cards */
+    /* Slide 2: Compare Cards with Rich Glowing Gradients */
     .compare-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -276,21 +338,24 @@
 
     .compare-card {
       border-radius: 18px;
-      padding: 32px;
+      padding: 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
+      overflow: hidden;
     }
 
     .card-legacy {
-      background: var(--crimson-light);
-      border: 1px solid rgba(220, 38, 38, 0.2);
+      background: linear-gradient(145deg, rgba(239, 68, 68, 0.12), rgba(15, 23, 42, 0.4));
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.05);
     }
 
     .card-falkordb {
-      background: var(--emerald-light);
-      border: 1px solid rgba(5, 150, 105, 0.25);
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.12));
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      box-shadow: inset 0 0 30px rgba(16, 185, 129, 0.08), 0 0 30px rgba(16, 185, 129, 0.1);
     }
 
     .compare-badge {
@@ -306,26 +371,33 @@
     }
 
     .card-legacy .compare-badge {
-      background: rgba(220, 38, 38, 0.15);
-      color: var(--crimson);
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--accent-coral);
     }
 
     .card-falkordb .compare-badge {
-      background: rgba(5, 150, 105, 0.2);
-      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.25);
+      color: var(--accent-emerald);
     }
 
     .compare-stat-large {
-      font-size: 2.4rem;
-      font-weight: 800;
+      font-size: 2.6rem;
+      font-weight: 900;
       font-family: var(--mono);
       letter-spacing: -0.03em;
       line-height: 1;
-      margin: 8px 0 16px 0;
+      margin: 6px 0 16px 0;
     }
 
-    .card-legacy .compare-stat-large { color: var(--crimson); }
-    .card-falkordb .compare-stat-large { color: var(--emerald); }
+    .card-legacy .compare-stat-large {
+      color: var(--accent-coral);
+      text-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    }
+
+    .card-falkordb .compare-stat-large {
+      color: var(--accent-emerald);
+      text-shadow: 0 0 25px rgba(52, 211, 153, 0.35);
+    }
 
     .point-list {
       display: flex;
@@ -339,52 +411,54 @@
       gap: 10px;
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--text-title);
+      color: var(--text-main);
     }
 
     .point-icon {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       flex-shrink: 0;
     }
 
     .card-footer-pill {
       font-family: var(--mono);
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 800;
       padding: 10px 14px;
       border-radius: 8px;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
     .card-legacy .card-footer-pill {
-      background: rgba(220, 38, 38, 0.1);
-      color: var(--crimson);
+      background: rgba(239, 68, 68, 0.12);
+      color: var(--accent-coral);
+      border: 1px dashed rgba(239, 68, 68, 0.3);
     }
 
     .card-falkordb .card-footer-pill {
-      background: rgba(5, 150, 105, 0.15);
-      color: var(--emerald);
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(52, 211, 153, 0.35);
     }
 
-    /* Slide 3: Visual Flow & Algorithm Pills */
+    /* Slide 3: Flow & Algorithms */
     .flow-card-container {
-      background: var(--bg);
-      border: 1px solid var(--card-border);
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--card-border-subtle);
       border-radius: 18px;
-      padding: 24px 30px;
-      margin: 20px 0;
+      padding: 22px 28px;
+      margin: 18px 0;
     }
 
     .flow-title {
       font-family: var(--mono);
       font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--text-muted);
+      font-weight: 800;
+      color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       display: flex;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .flow-nodes {
@@ -396,64 +470,66 @@
 
     .node {
       flex: 1;
-      background: var(--card-bg);
-      border: 2px solid var(--card-border);
+      background: var(--deck-bg);
+      border: 2px solid var(--card-border-subtle);
       border-radius: 12px;
-      padding: 16px 14px;
+      padding: 14px 12px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: all 0.2s;
     }
 
     .node.compromised {
-      border-color: var(--crimson);
-      background: var(--crimson-light);
+      border-color: var(--accent-coral);
+      background: rgba(239, 68, 68, 0.12);
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
     }
 
     .node.gateway {
-      border-color: var(--amber);
-      background: var(--amber-light);
+      border-color: var(--accent-amber);
+      background: rgba(251, 191, 36, 0.1);
     }
 
     .node.cut-target {
-      border-color: var(--emerald);
-      background: var(--emerald-light);
-      box-shadow: 0 0 20px rgba(5, 150, 105, 0.15);
+      border-color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.15);
+      box-shadow: 0 0 25px rgba(52, 211, 153, 0.25);
     }
 
     .node.vault {
-      border-color: var(--primary);
-      background: var(--primary-light);
+      border-color: var(--accent-violet);
+      background: rgba(129, 140, 248, 0.12);
+      box-shadow: 0 0 20px rgba(129, 140, 248, 0.15);
     }
 
     .node-status {
       font-family: var(--mono);
       font-size: 0.68rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .node.compromised .node-status { color: var(--crimson); }
-    .node.gateway .node-status { color: var(--amber); }
-    .node.cut-target .node-status { color: var(--emerald); }
-    .node.vault .node-status { color: var(--primary); }
+    .node.compromised .node-status { color: var(--accent-coral); }
+    .node.gateway .node-status { color: var(--accent-amber); }
+    .node.cut-target .node-status { color: var(--accent-emerald); }
+    .node.vault .node-status { color: var(--accent-violet); }
 
     .node-name {
       font-size: 0.95rem;
       font-weight: 800;
-      color: var(--text-title);
-      margin-top: 4px;
+      color: var(--text-main);
+      margin-top: 3px;
     }
 
     .node-sub {
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: var(--text-dim);
       margin-top: 2px;
     }
 
     .flow-arrow {
       font-weight: 800;
-      color: var(--text-muted);
+      color: var(--text-dim);
       font-size: 1.2rem;
     }
 
@@ -462,14 +538,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: var(--amber-light);
-      border: 1px dashed var(--amber);
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px dashed var(--accent-amber);
       border-radius: 10px;
-      padding: 10px 18px;
-      margin-top: 14px;
+      padding: 10px 16px;
+      margin-top: 12px;
       font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--amber);
+      font-weight: 700;
+      color: var(--accent-amber);
     }
 
     /* 3 Algorithm Badges */
@@ -481,29 +557,29 @@
     }
 
     .algo-box {
-      background: var(--bg);
-      border: 1px solid var(--card-border);
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--card-border-subtle);
       border-radius: 14px;
-      padding: 18px 20px;
+      padding: 16px 18px;
     }
 
     .algo-box-tag {
       font-family: var(--mono);
       font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-weight: 800;
+      color: var(--accent-cyan);
     }
 
     .algo-box-title {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 800;
-      color: var(--text-title);
+      color: var(--text-main);
       margin: 4px 0 2px 0;
     }
 
     .algo-box-desc {
       font-size: 0.82rem;
-      color: var(--text-muted);
+      color: var(--text-dim);
       line-height: 1.4;
     }
 
@@ -516,48 +592,51 @@
     }
 
     .stat-card {
-      background: var(--emerald-light);
-      border: 1px solid rgba(5, 150, 105, 0.25);
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.08));
+      border: 1px solid rgba(52, 211, 153, 0.3);
       border-radius: 18px;
-      padding: 32px 24px;
+      padding: 32px 20px;
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     .stat-huge {
       font-family: var(--mono);
-      font-size: 3.5rem;
+      font-size: 3.6rem;
       font-weight: 900;
-      color: var(--emerald);
+      color: var(--accent-emerald);
       letter-spacing: -0.04em;
       line-height: 1;
+      text-shadow: 0 0 30px rgba(52, 211, 153, 0.35);
     }
 
     .stat-label {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 800;
-      color: var(--text-title);
+      color: var(--text-main);
       margin-top: 12px;
     }
 
     .stat-expl {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-dim);
       margin-top: 4px;
     }
 
     .rule3-card {
-      background: var(--primary-light);
-      border: 1px solid rgba(79, 70, 229, 0.25);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.08));
+      border: 1px solid rgba(129, 140, 248, 0.35);
       border-radius: 16px;
-      padding: 24px 32px;
+      padding: 24px 30px;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
     .rule3-badge {
-      background: var(--primary);
-      color: #fff;
+      background: linear-gradient(135deg, var(--accent-violet), #ec4899);
+      color: #ffffff;
       font-family: var(--mono);
       font-size: 0.8rem;
       font-weight: 800;
@@ -565,13 +644,14 @@
       border-radius: 8px;
       white-space: nowrap;
       letter-spacing: 0.05em;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
     }
 
     .rule3-quote {
       font-size: 1.05rem;
       font-weight: 600;
       line-height: 1.5;
-      color: var(--text-title);
+      color: var(--text-main);
     }
 
     /* Footer & Controls */
@@ -579,34 +659,38 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 48px;
-      border-top: 1px solid var(--card-border);
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(12px);
+      padding: 16px 44px;
+      border-top: 1px solid var(--deck-border);
+      background: rgba(13, 18, 31, 0.65);
+      backdrop-filter: blur(16px);
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-dim);
     }
 
-    [data-theme="dark"] footer {
-      background: rgba(17, 24, 39, 0.7);
+    [data-theme="soft-slate"] footer {
+      background: rgba(221, 228, 237, 0.75);
+    }
+
+    [data-theme="cyber-emerald"] footer {
+      background: rgba(6, 20, 18, 0.75);
     }
 
     .btn-nav {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--card-border-subtle);
       padding: 8px 18px;
       border-radius: 8px;
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 800;
       font-family: var(--sans);
-      color: var(--text-title);
+      color: var(--text-main);
       transition: all 0.2s;
     }
 
     .btn-nav:hover {
-      background: var(--primary-light);
-      color: var(--primary);
-      border-color: var(--primary);
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
     }
 
     .dots-nav {
@@ -619,28 +703,32 @@
       width: 10px;
       height: 10px;
       border-radius: 100px;
-      background: var(--card-border);
+      background: var(--card-border-subtle);
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
     .dot-step.active {
       width: 32px;
-      background: var(--primary);
+      background: var(--accent-cyan);
+      box-shadow: 0 0 12px var(--accent-cyan);
     }
   </style>
 </head>
 <body>
 
-  <!-- Top App Bar -->
+  <!-- Top App Bar with Instant Eye-Care Palette Switcher -->
   <header>
     <div class="brand-wrap">
       <span class="brand-badge">Track 01</span>
       <span class="brand-title">BreachGraph // Incident Commander</span>
     </div>
-    <div class="header-actions">
-      <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Graph Hacks 2026 (WeMakeDevs &amp; FalkorDB)</span>
-      <button class="theme-toggle-btn" onclick="toggleTheme()" id="theme-btn">🌙 Dark Mode</button>
+    
+    <div class="header-palette-controls">
+      <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; margin-right: 4px;">Color Theme:</span>
+      <button class="palette-btn active" id="btn-aurora" onclick="setTheme('')">🌌 Aurora Twilight</button>
+      <button class="palette-btn" id="btn-soft" onclick="setTheme('soft-slate')">🎨 Soft Slate (Eye-Care)</button>
+      <button class="palette-btn" id="btn-emerald" onclick="setTheme('cyber-emerald')">💎 Cyber Emerald</button>
     </div>
   </header>
 
@@ -651,7 +739,7 @@
     <section class="slide active" id="slide-0">
       <div>
         <div class="slide-tag">WeMakeDevs &amp; FalkorDB Hackathon Submission</div>
-        <h1 class="slide-heading">BreachGraph</h1>
+        <h1 class="slide-heading gradient-title">BreachGraph</h1>
         <p class="slide-subtitle">
           Autonomous Incident Commander with Real-Time Business Trade-Off Reasoning
         </p>
@@ -663,19 +751,19 @@
       </div>
 
       <div class="hero-cards-grid">
-        <div class="hero-card">
-          <div class="hero-card-label">Presenter</div>
+        <div class="hero-card" style="border-left: 4px solid var(--accent-violet);">
+          <div class="hero-card-label">Presenter / Architect</div>
           <div class="hero-card-val">Vivek Onkarnath Bharati</div>
           <div class="hero-card-sub">Solo 1st-Year CS Student</div>
         </div>
-        <div class="hero-card">
+        <div class="hero-card" style="border-left: 4px solid var(--accent-cyan);">
           <div class="hero-card-label">Hackathon Track</div>
-          <div class="hero-card-val" style="color: var(--primary);">Track 01: Connected Data</div>
+          <div class="hero-card-val" style="color: var(--accent-cyan);">Track 01: Connected Data</div>
           <div class="hero-card-sub">WeMakeDevs &amp; FalkorDB</div>
         </div>
-        <div class="hero-card">
+        <div class="hero-card" style="border-left: 4px solid var(--accent-emerald);">
           <div class="hero-card-label">Core Technical Moat</div>
-          <div class="hero-card-val" style="color: var(--emerald);">Min-Cut Graph Partitioning</div>
+          <div class="hero-card-val" style="color: var(--accent-emerald);">Min-Cut Graph Partitioning</div>
           <div class="hero-card-sub">Zero Accidental Downtime</div>
         </div>
       </div>
@@ -752,7 +840,7 @@
       <div class="flow-card-container">
         <div class="flow-title">
           <span>Active Lateral Attack Vector</span>
-          <span style="color: var(--emerald);">Min-Cut Solved In-Engine</span>
+          <span style="color: var(--accent-emerald);">Min-Cut Solved In-Engine</span>
         </div>
         <div class="flow-nodes">
           <div class="node compromised">
@@ -782,24 +870,24 @@
 
         <div class="dep-callout">
           <span>🔒 Critical Business Dependency: <strong>Checkout-Billing-Service ($500k/hr)</strong> ➔ Depends on Internal-API-Gateway</span>
-          <span style="color: var(--emerald); font-family: var(--mono); font-weight: 800;">100% PRESERVED</span>
+          <span style="color: var(--accent-emerald); font-family: var(--mono); font-weight: 800;">100% PRESERVED</span>
         </div>
       </div>
 
       <!-- 3 Core Algorithms -->
       <div class="algo-row">
-        <div class="algo-box">
+        <div class="algo-box" style="border-top: 3px solid var(--accent-violet);">
           <div class="algo-box-tag">ALGORITHM 1</div>
           <div class="algo-box-title">shortestPath[*1..5]</div>
           <div class="algo-box-desc">Native C-engine Cypher traversal locating multi-hop lateral pivots.</div>
         </div>
-        <div class="algo-box" style="border-color: rgba(5, 150, 105, 0.4);">
-          <div class="algo-box-tag" style="color: var(--emerald);">ALGORITHM 2</div>
+        <div class="algo-box" style="border-top: 3px solid var(--accent-emerald);">
+          <div class="algo-box-tag" style="color: var(--accent-emerald);">ALGORITHM 2</div>
           <div class="algo-box-title">Directed Min-Cut</div>
           <div class="algo-box-desc">Formulates containment as graph partitioning with minimum loss.</div>
         </div>
-        <div class="algo-box">
-          <div class="algo-box-tag">ALGORITHM 3</div>
+        <div class="algo-box" style="border-top: 3px solid var(--accent-cyan);">
+          <div class="algo-box-tag" style="color: var(--accent-cyan);">ALGORITHM 3</div>
           <div class="algo-box-title">Dynamic Cypher Sum</div>
           <div class="algo-box-desc"><code>sum(d.revenue_impact)</code> dynamic calculation with 0 hardcoding.</div>
         </div>
@@ -819,13 +907,13 @@
           <div class="stat-label">Downtime Prevented</div>
           <div class="stat-expl">Checkout billing stays 100% online</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-huge">$0.00</div>
+        <div class="stat-card" style="border-color: rgba(56, 189, 248, 0.4);">
+          <div class="stat-huge" style="color: var(--accent-cyan); text-shadow: 0 0 30px rgba(56, 189, 248, 0.35);">$0.00</div>
           <div class="stat-label">Collateral Damage</div>
           <div class="stat-expl">Surgical credential revocation</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-huge">&lt; 3s</div>
+        <div class="stat-card" style="border-color: rgba(129, 140, 248, 0.4);">
+          <div class="stat-huge" style="color: var(--accent-violet); text-shadow: 0 0 30px rgba(129, 140, 248, 0.35);">&lt; 3s</div>
           <div class="stat-label">Closed-Loop Containment</div>
           <div class="stat-expl">Detection to live edge severance</div>
         </div>
@@ -845,7 +933,7 @@
   <!-- Bottom Navigation Bar -->
   <footer>
     <div style="font-family: var(--mono); font-size: 0.8rem;">
-      Use <kbd style="background: var(--card-border); padding: 2px 6px; border-radius: 4px;">←</kbd> <kbd style="background: var(--card-border); padding: 2px 6px; border-radius: 4px;">→</kbd> or <kbd style="background: var(--card-border); padding: 2px 6px; border-radius: 4px;">Space</kbd> to navigate
+      Use <kbd style="background: var(--card-border-subtle); padding: 2px 6px; border-radius: 4px;">←</kbd> <kbd style="background: var(--card-border-subtle); padding: 2px 6px; border-radius: 4px;">→</kbd> or <kbd style="background: var(--card-border-subtle); padding: 2px 6px; border-radius: 4px;">Space</kbd> to navigate
     </div>
 
     <div style="display: flex; align-items: center; gap: 16px;">
@@ -869,7 +957,6 @@
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot-step');
     const slideNum = document.getElementById('current-slide');
-    const themeBtn = document.getElementById('theme-btn');
 
     function showSlide(index) {
       if (index < 0) index = 0;
@@ -903,14 +990,19 @@
       showSlide(i);
     }
 
-    function toggleTheme() {
-      const current = document.body.getAttribute('data-theme');
-      if (current === 'dark') {
-        document.body.removeAttribute('data-theme');
-        themeBtn.textContent = '🌙 Dark Mode';
+    function setTheme(theme) {
+      if (theme) {
+        document.body.setAttribute('data-theme', theme);
       } else {
-        document.body.setAttribute('data-theme', 'dark');
-        themeBtn.textContent = '☀️ Light Mode';
+        document.body.removeAttribute('data-theme');
+      }
+      document.querySelectorAll('.palette-btn').forEach(btn => btn.classList.remove('active'));
+      if (theme === 'soft-slate') {
+        document.getElementById('btn-soft').classList.add('active');
+      } else if (theme === 'cyber-emerald') {
+        document.getElementById('btn-emerald').classList.add('active');
+      } else {
+        document.getElementById('btn-aurora').classList.add('active');
       }
     }
 
