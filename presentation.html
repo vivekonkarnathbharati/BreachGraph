@@ -158,10 +158,53 @@
       letter-spacing: -0.01em;
     }
 
+    .logo-shield {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.35));
+    }
+
+    .partner-showcase {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--card-border-subtle);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .partner-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--text-main);
+    }
+
+    .partner-cross {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    .partner-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.12);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-left: 4px;
+      font-weight: 800;
+    }
+
     .header-palette-controls {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .palette-btn {
@@ -717,18 +760,59 @@
 </head>
 <body>
 
-  <!-- Top App Bar with Instant Eye-Care Palette Switcher -->
+  <!-- Top App Bar with Option A Co-Branding Logos -->
   <header>
+    <!-- Left: BreachGraph Logo & Identity -->
     <div class="brand-wrap">
-      <span class="brand-badge">Track 01</span>
-      <span class="brand-title">BreachGraph // Incident Commander</span>
+      <div class="logo-shield">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L3 6V11.5C3 16.5 6.8 21.2 12 22C17.2 21.2 21 16.5 21 11.5V6L12 2Z" stroke="url(#shieldGrad)" stroke-width="2" stroke-linejoin="round" fill="rgba(56, 189, 248, 0.12)"/>
+          <circle cx="12" cy="7.5" r="1.5" fill="#38bdf8"/>
+          <circle cx="7.5" cy="12" r="1.5" fill="#34d399"/>
+          <circle cx="16.5" cy="12" r="1.5" fill="#34d399"/>
+          <circle cx="12" cy="16.5" r="1.8" fill="#818cf8"/>
+          <path d="M12 7.5L7.5 12M12 7.5L16.5 12M7.5 12L12 16.5M16.5 12L12 16.5" stroke="#38bdf8" stroke-width="1.3" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="shieldGrad" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38bdf8"/>
+              <stop offset="0.5" stop-color="#34d399"/>
+              <stop offset="1" stop-color="#818cf8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div>
+        <span class="brand-title">BreachGraph</span>
+        <span class="brand-badge" style="margin-left: 6px;">Track 01</span>
+      </div>
+    </div>
+
+    <!-- Center: Co-Branding Hackathon Partners (WeMakeDevs x FalkorDB) -->
+    <div class="partner-showcase">
+      <div class="partner-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6L7.5 18L12 8L16.5 18L21 6" stroke="#38bdf8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="8" r="2.2" fill="#fb923c"/>
+        </svg>
+        <span>WeMakeDevs</span>
+      </div>
+      <span class="partner-cross">✕</span>
+      <div class="partner-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L3.5 7V17L12 22L20.5 17V7L12 2Z" stroke="#34d399" stroke-width="2" fill="rgba(52, 211, 153, 0.15)"/>
+          <path d="M12 2V12M12 12L3.5 7M12 12L20.5 7M12 12V22" stroke="#38bdf8" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="2.2" fill="#10b981"/>
+        </svg>
+        <span style="color: var(--accent-emerald);">FalkorDB</span>
+      </div>
+      <div class="partner-tag">Graph Hacks 2026</div>
     </div>
     
+    <!-- Right: Color Palette Switcher -->
     <div class="header-palette-controls">
-      <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; margin-right: 4px;">Color Theme:</span>
-      <button class="palette-btn active" id="btn-aurora" onclick="setTheme('')">🌌 Aurora Twilight</button>
-      <button class="palette-btn" id="btn-soft" onclick="setTheme('soft-slate')">🎨 Soft Slate (Eye-Care)</button>
-      <button class="palette-btn" id="btn-emerald" onclick="setTheme('cyber-emerald')">💎 Cyber Emerald</button>
+      <button class="palette-btn active" id="btn-aurora" onclick="setTheme('')">🌌 Aurora</button>
+      <button class="palette-btn" id="btn-soft" onclick="setTheme('soft-slate')">🎨 Soft Slate</button>
+      <button class="palette-btn" id="btn-emerald" onclick="setTheme('cyber-emerald')">💎 Emerald</button>
     </div>
   </header>
 
@@ -738,14 +822,31 @@
     <!-- SLIDE 1: Title & Identity -->
     <section class="slide active" id="slide-0">
       <div>
-        <div class="slide-tag">WeMakeDevs &amp; FalkorDB Hackathon Submission</div>
+        <div class="slide-tag">Track 01: Agents That Act on Connected Data</div>
         <h1 class="slide-heading gradient-title">BreachGraph</h1>
         <p class="slide-subtitle">
           Autonomous Incident Commander with Real-Time Business Trade-Off Reasoning
         </p>
         <div>
           <span class="engine-pill">
-            ⚡ Powered by FalkorDB In-Memory Graph &amp; Google Gemini
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L3.5 7V17L12 22L20.5 17V7L12 2Z" stroke="#34d399" stroke-width="2" fill="rgba(52, 211, 153, 0.2)"/>
+              <path d="M12 2V12M12 12L3.5 7M12 12L20.5 7M12 12V22" stroke="#38bdf8" stroke-width="1.6"/>
+              <circle cx="12" cy="12" r="2.2" fill="#10b981"/>
+            </svg>
+            <span>FalkorDB In-Memory Graph</span>
+            <span style="opacity: 0.4; margin: 0 4px;">•</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" fill="url(#pillGeminiGrad)"/>
+              <defs>
+                <linearGradient id="pillGeminiGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#38bdf8"/>
+                  <stop offset="0.5" stop-color="#818cf8"/>
+                  <stop offset="1" stop-color="#ec4899"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span>Google Gemini</span>
           </span>
         </div>
       </div>
