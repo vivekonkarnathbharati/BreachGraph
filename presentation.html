@@ -37,57 +37,7 @@
       --mono: 'JetBrains Mono', monospace;
     }
 
-    /* THEME 2: Eye-Care Soft Slate (Soothing Muted Canvas, Not Blinding White, Colorful Cards) */
-    [data-theme="soft-slate"] {
-      --canvas-bg: #dde4ed;
-      --bg-mesh-1: rgba(99, 102, 241, 0.15);
-      --bg-mesh-2: rgba(236, 72, 153, 0.12);
-      --bg-mesh-3: rgba(16, 185, 129, 0.15);
-      --bg-mesh-4: rgba(6, 182, 212, 0.15);
-      
-      --deck-bg: #edf2f7;
-      --deck-border: rgba(15, 23, 42, 0.12);
-      --deck-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
-      
-      --card-bg-subtle: #ffffff;
-      --card-border-subtle: rgba(15, 23, 42, 0.08);
-      
-      --text-main: #0f172a;
-      --text-sub: #334155;
-      --text-dim: #64748b;
-      
-      --accent-violet: #6366f1;
-      --accent-cyan: #0284c7;
-      --accent-emerald: #059669;
-      --accent-coral: #dc2626;
-      --accent-amber: #d97706;
-    }
 
-    /* THEME 3: Cyber Emerald Jewel */
-    [data-theme="cyber-emerald"] {
-      --canvas-bg: #061412;
-      --bg-mesh-1: rgba(16, 185, 129, 0.25);
-      --bg-mesh-2: rgba(6, 182, 212, 0.20);
-      --bg-mesh-3: rgba(245, 158, 11, 0.14);
-      --bg-mesh-4: rgba(16, 185, 129, 0.15);
-      
-      --deck-bg: rgba(11, 28, 25, 0.88);
-      --deck-border: rgba(52, 211, 153, 0.25);
-      --deck-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(16, 185, 129, 0.15);
-      
-      --card-bg-subtle: rgba(255, 255, 255, 0.04);
-      --card-border-subtle: rgba(52, 211, 153, 0.15);
-      
-      --text-main: #f0fdf4;
-      --text-sub: #bbf7d0;
-      --text-dim: #86efac;
-      
-      --accent-violet: #a78bfa;
-      --accent-cyan: #22d3ee;
-      --accent-emerald: #10b981;
-      --accent-coral: #fb7185;
-      --accent-amber: #fbbf24;
-    }
 
     * {
       box-sizing: border-box;
@@ -207,27 +157,7 @@
       gap: 8px;
     }
 
-    .palette-btn {
-      background: var(--card-bg-subtle);
-      border: 1px solid var(--card-border-subtle);
-      padding: 6px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-family: var(--sans);
-      font-weight: 700;
-      color: var(--text-sub);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
 
-    .palette-btn:hover, .palette-btn.active {
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan);
-      background: rgba(56, 189, 248, 0.1);
-    }
 
     /* Main Slide Stage */
     .deck-viewport {
@@ -260,6 +190,15 @@
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    #slide-0 {
+      justify-content: center;
+      gap: 36px;
+    }
+
+    #slide-0 .hero-cards-grid {
+      margin-top: 0;
+    }
+
     .slide.active {
       opacity: 1;
       visibility: visible;
@@ -290,12 +229,6 @@
 
     .gradient-title {
       background: linear-gradient(135deg, #ffffff 25%, var(--accent-cyan) 65%, var(--accent-violet) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    [data-theme="soft-slate"] .gradient-title {
-      background: linear-gradient(135deg, #0f172a 30%, #2563eb 70%, #7c3aed 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -710,13 +643,7 @@
       color: var(--text-dim);
     }
 
-    [data-theme="soft-slate"] footer {
-      background: rgba(221, 228, 237, 0.75);
-    }
 
-    [data-theme="cyber-emerald"] footer {
-      background: rgba(6, 20, 18, 0.75);
-    }
 
     .btn-nav {
       background: var(--card-bg-subtle);
@@ -808,11 +735,12 @@
       <div class="partner-tag">Graph Hacks 2026</div>
     </div>
     
-    <!-- Right: Color Palette Switcher -->
-    <div class="header-palette-controls">
-      <button class="palette-btn active" id="btn-aurora" onclick="setTheme('')">🌌 Aurora</button>
-      <button class="palette-btn" id="btn-soft" onclick="setTheme('soft-slate')">🎨 Soft Slate</button>
-      <button class="palette-btn" id="btn-emerald" onclick="setTheme('cyber-emerald')">💎 Emerald</button>
+    <!-- Right: Verified Live Status -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="font-family: var(--mono); font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); padding: 6px 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--accent-emerald); box-shadow: 0 0 8px var(--accent-emerald);"></span>
+        FalkorDB Cloud Active
+      </span>
     </div>
   </header>
 
@@ -1091,21 +1019,6 @@
       showSlide(i);
     }
 
-    function setTheme(theme) {
-      if (theme) {
-        document.body.setAttribute('data-theme', theme);
-      } else {
-        document.body.removeAttribute('data-theme');
-      }
-      document.querySelectorAll('.palette-btn').forEach(btn => btn.classList.remove('active'));
-      if (theme === 'soft-slate') {
-        document.getElementById('btn-soft').classList.add('active');
-      } else if (theme === 'cyber-emerald') {
-        document.getElementById('btn-emerald').classList.add('active');
-      } else {
-        document.getElementById('btn-aurora').classList.add('active');
-      }
-    }
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
