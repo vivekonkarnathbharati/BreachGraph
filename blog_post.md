@@ -20,6 +20,8 @@ When I read the challenge prompt for **Track 01 ("Agents That Act on Connected D
 
 The answer is **BreachGraph**, and here is how I built it using **FalkorDB** and **Google Gemini**.
 
+> 📺 **Watch the 2-Minute Live Demo on YouTube:** [https://youtu.be/EEV6qgF1sv4](https://youtu.be/EEV6qgF1sv4)
+
 ---
 
 ## 2. Why Relational SQL and Vector Databases Fail
@@ -132,5 +134,6 @@ As a first-year CS student, building **BreachGraph** showed me that the hardest 
 
 By placing FalkorDB at the heart of our agent's decision loop, we turned what used to be a 4-hour human scramble into a 3-second autonomous response.
 
-* **GitHub Repository:** [https://github.com/vivekob/BreachGraph](https://github.com/vivekob/BreachGraph)
+* **GitHub Repository:** [https://github.com/vivekonkarnathbharati/BreachGraph](https://github.com/vivekonkarnathbharati/BreachGraph)
+* **2-Minute Demo Video:** [https://youtu.be/EEV6qgF1sv4](https://youtu.be/EEV6qgF1sv4)
 * Built with ❤️ for **WeMakeDevs & FalkorDB Graph Hacks 2026**.
