@@ -3,7 +3,7 @@
 > **Hackathon Event:** Graph Hacks: Context for AI Agents (WeMakeDevs & FalkorDB)  
 > **Target Track:** Track 01 – *Agents That Act on Connected Data*  
 > **Core Innovation:** Formulating autonomous cyber incident containment as a **Minimum-Weight Cut (Min-Cut)** problem in FalkorDB to neutralize multi-hop lateral movement with **zero business downtime**.  
-> 📺 **Official 2-Minute Pitch & Demo Video:** [▶️ Watch Demo on GitHub](https://github.com/vivekonkarnathbharati/BreachGraph/blob/main/docs/BreachGraph_Master_Demo.mp4)
+> 📺 **Official 2-Minute Pitch & Demo:** [▶️ Watch on YouTube](https://youtu.be/EEV6qgF1sv4) · [Direct Mirror on GitHub](https://github.com/vivekonkarnathbharati/BreachGraph/blob/main/docs/BreachGraph_Master_Demo.mp4)
 
 ---
 
